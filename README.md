@@ -17,6 +17,17 @@ python3 -m http.server 8000
 
 Open the page over HTTP, not by double-clicking the file, so the scripts and photo data load.
 
-## Hosting
+## Layout
 
-It is plain static files with no build step. Any static host works (Vercel, Netlify, GitHub Pages, Cloudflare Pages). Point it at the repo root.
+- Phones (under 860px wide): the original mobile design with a sticky Directions / WhatsApp bar.
+- Desktop and large tablets (860px and up): full-width sections, top nav, two-column hero, wider product grids.
+
+## Deploy to Vercel
+
+Plain static files, no build step. `vercel.json` is included.
+
+1. In Vercel, click **Add New → Project** and import `Nevinlahenriquez/colonyfoodmart`.
+2. Framework preset: **Other**. Leave the build command and output directory empty. Root directory: `./`.
+3. Click **Deploy**.
+
+The route video page is served at `/how-to-find-us`.

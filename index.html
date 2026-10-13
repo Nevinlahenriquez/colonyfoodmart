@@ -23,59 +23,176 @@
   a { color: #0E9E92; text-decoration: none; }
   a:hover { color: #0B3B39; }
   video::cue { font-family: Outfit, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.35; color: #FFFFFF; background: rgba(11,59,57,0.85); }
+  html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 72px; }
+  .cfm-desk { display: none !important; }
+
+  /* ── Desktop & large tablet ─────────────────────────────────────────── */
+  @media (min-width: 860px) {
+    .cfm-page { max-width: none !important; box-shadow: none !important; }
+    .cfm-sec {
+      padding-left: max(40px, calc((100% - 1120px) / 2)) !important;
+      padding-right: max(40px, calc((100% - 1120px) / 2)) !important;
+    }
+    .cfm-nav.cfm-desk { display: flex !important; gap: 26px; margin-left: auto; margin-right: 18px; }
+    .cfm-nav a { font-family: Outfit, sans-serif; font-weight: 600; font-size: 15px; color: #0B3B39; }
+    .cfm-nav a:hover { color: #0E9E92; }
+    .cfm-head-cta.cfm-desk { display: inline-flex !important; }
+    .cfm-head { padding-top: 12px !important; padding-bottom: 12px !important; }
+    .cfm-head img { height: 40px !important; }
+    .cfm-h2 { font-size: 34px !important; }
+
+    /* hero: photo left, text right */
+    .cfm-hero {
+      display: grid !important; text-align: left !important;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      grid-template-rows: 1fr auto auto auto auto auto 1fr;
+      column-gap: 64px; padding-top: 64px !important; padding-bottom: 72px !important;
+    }
+    .cfm-hero-main { display: contents !important; }
+    .cfm-hero-main > *, .cfm-hero-cta { position: relative; grid-column: 2; }
+    .cfm-hero-img { grid-column: 1 !important; grid-row: 1 / -1; align-self: center; margin: 0 !important; }
+    .cfm-hero-status { grid-row: 2; justify-self: start; }
+    .cfm-hero-kicker { grid-row: 3; margin: 0 !important; }
+    .cfm-hero-title { grid-row: 4; font-size: 52px !important; margin: 18px 0 14px !important; }
+    .cfm-hero-sub { grid-row: 5; margin: 0 !important; font-size: 19px !important; max-width: 40ch !important; }
+    .cfm-hero-cta { grid-row: 6; flex-direction: row !important; margin-top: 30px !important; }
+    .cfm-hero-cta > a { flex: 1 1 0; }
+
+    .cfm-hours { justify-content: flex-start !important; gap: 32px !important; padding-top: 20px !important; }
+    .cfm-bell { padding-bottom: 20px !important; }
+    .cfm-cards { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px !important; padding-top: 48px !important; }
+
+    /* products */
+    .cfm-products { padding-top: 64px !important; padding-bottom: 64px !important; }
+    .cfm-drinks { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 300px !important; gap: 16px !important; }
+    .cfm-drinks > div:not(.cfm-adult) { height: auto !important; min-height: 420px; }
+    .cfm-adult { grid-column: 3 !important; grid-row: 1; margin-top: 0 !important; }
+    .cfm-snacks { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 16px !important; }
+    .cfm-snacks > div { height: 260px !important; }
+    .cfm-beachday { gap: 16px !important; }
+    .cfm-beachday > div { height: 420px !important; }
+
+    /* promo: intro + how-to on the left, promo phone on the right */
+    .cfm-promo {
+      display: grid !important; grid-template-columns: minmax(0, 1fr) 320px;
+      grid-template-rows: auto 1fr auto; column-gap: 72px;
+      padding-top: 64px !important; padding-bottom: 72px !important; margin-bottom: 0 !important;
+    }
+    .cfm-promo-intro { grid-column: 1; grid-row: 1; }
+    .cfm-promo-intro h2 { font-size: 42px !important; }
+    .cfm-promo-phone { grid-column: 2; grid-row: 1 / 3; width: 100% !important; margin: 0 !important; align-self: start; }
+    .cfm-promo-hint { grid-column: 2; grid-row: 3; }
+    .cfm-promo-how {
+      grid-column: 1; grid-row: 2 / 4; margin-top: 36px !important;
+      display: grid !important; grid-template-columns: 260px minmax(0, 1fr);
+      grid-template-rows: auto auto 1fr; column-gap: 28px; align-items: start;
+    }
+    .cfm-promo-how-title { grid-column: 1 / -1; }
+    .cfm-promo-video { grid-column: 1; grid-row: 2 / 4; width: 100% !important; margin: 0 !important; }
+    .cfm-promo-steps { grid-column: 2; grid-row: 2; }
+    .cfm-promo-cta { grid-column: 2; grid-row: 3; }
+
+    /* store photos + beaches */
+    .cfm-photos { padding-top: 64px !important; padding-bottom: 64px !important; }
+    .cfm-store, .cfm-beaches { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) !important; gap: 16px !important; }
+    .cfm-store > div:first-child { height: 440px !important; }
+    .cfm-store-small, .cfm-beaches-small { grid-template-columns: minmax(0, 1fr) !important; gap: 16px !important; }
+    .cfm-store-small > div { height: 212px !important; }
+    .cfm-beaches > div:first-child > div:first-child { height: 380px !important; }
+    .cfm-beaches-small > div > div:first-child { height: 155px !important; }
+
+    /* where we are: steps left, route film right */
+    .cfm-where {
+      display: grid; grid-template-columns: minmax(0, 1fr) 340px;
+      grid-template-rows: auto auto auto auto 1fr; column-gap: 72px;
+      padding-top: 64px !important; padding-bottom: 64px !important;
+    }
+    .cfm-where > * { grid-column: 1; }
+    .cfm-where-cta { justify-self: start; padding: 0 32px !important; }
+    .cfm-where-video { grid-column: 2 !important; grid-row: 1 / -1; margin-top: 0 !important; }
+
+    .cfm-reviews { padding-top: 64px !important; padding-bottom: 64px !important; }
+    .cfm-review-list { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px !important; align-items: start; }
+
+    .cfm-contact {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 72px;
+      padding-top: 56px !important; padding-bottom: 40px !important;
+    }
+    .cfm-contact-title, .cfm-contact-foot { grid-column: 1 / -1; }
+    .cfm-contact-addr { margin-top: 0 !important; font-size: 17px !important; }
+
+    .cfm-bar, .cfm-spacer { display: none !important; }
+  }
+  @media (min-width: 860px) and (max-width: 1080px) {
+    .cfm-nav.cfm-desk { gap: 16px; }
+    .cfm-nav a { font-size: 14px; }
+    .cfm-hero-title { font-size: 42px !important; }
+    .cfm-review-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
 </style>
 </helmet>
-<div style="min-height:100vh;background:#FBFAF6;color:#0B3B39;font-family:Karla,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased">
+<div class="cfm-root" style="min-height:100vh;background:#FBFAF6;color:#0B3B39;font-family:Karla,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased">
 
-  <div style="width:100%;max-width:540px;background:#FFFFFF;box-shadow:0 0 0 1px rgba(11,59,57,0.06)">
+  <div class="cfm-page" style="width:100%;max-width:540px;background:#FFFFFF;box-shadow:0 0 0 1px rgba(11,59,57,0.06)">
 
-    <div style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(11,59,57,0.08)">
+    <div class="cfm-head cfm-sec" style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(11,59,57,0.08)">
       <img src="assets/colony-logo.png" alt="Colony Food Market" style="height:34px;width:auto;display:block" />
+      <nav class="cfm-nav cfm-desk" aria-label="Main">
+        <a href="#products">{{ navProducts }}</a>
+        <a href="#promo">{{ navPromo }}</a>
+        <a href="#where">{{ navWhere }}</a>
+        <a href="#reviews">{{ navReviews }}</a>
+        <a href="#contact">{{ navContact }}</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px">
       <div style="display:flex;gap:4px;background:#F1F5F4;padding:3px;border-radius:999px">
         <button onClick="{{ setEn }}" style="border:0;cursor:pointer;font-family:Karla,sans-serif;font-weight:700;font-size:12px;letter-spacing:0.04em;padding:7px 11px;border-radius:999px;background:{{ enBg }};color:{{ enFg }}">ENG</button>
         <button onClick="{{ setEs }}" style="border:0;cursor:pointer;font-family:Karla,sans-serif;font-weight:700;font-size:12px;letter-spacing:0.04em;padding:7px 11px;border-radius:999px;background:{{ esBg }};color:{{ esFg }}">ESP</button>
         <button onClick="{{ setNl }}" style="border:0;cursor:pointer;font-family:Karla,sans-serif;font-weight:700;font-size:12px;letter-spacing:0.04em;padding:7px 11px;border-radius:999px;background:{{ nlBg }};color:{{ nlFg }}">NED</button>
       </div>
+      <a class="cfm-desk cfm-head-cta" href="{{ waUrl }}" target="_blank" rel="noopener" style="align-items:center;min-height:40px;padding:0 18px;border-radius:999px;background:#0B3B39;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:700;font-size:15px" style-hover="background:#12B3A5;color:#FFFFFF">WhatsApp</a>
+      </div>
     </div>
 
-    <div style="position:relative;overflow:hidden;padding:30px 22px 32px;text-align:center;background:linear-gradient(180deg,#0B3B39 0%,#0E6C66 52%,#12B3A5 100%);color:#FFFFFF">
+    <div class="cfm-hero cfm-sec" style="position:relative;overflow:hidden;padding:30px 22px 32px;text-align:center;background:linear-gradient(180deg,#0B3B39 0%,#0E6C66 52%,#12B3A5 100%);color:#FFFFFF">
       <div style="position:absolute;top:-70px;right:-60px;width:210px;height:210px;border-radius:999px;background:radial-gradient(circle,rgba(255,212,0,0.55) 0%,rgba(255,212,0,0) 70%)"></div>
       <div style="position:absolute;left:-40px;bottom:-90px;width:260px;height:180px;border-radius:50%;background:rgba(127,227,217,0.18)"></div>
-      <div style="position:relative">
-        <div style="width:100%;aspect-ratio:1080 / 848;margin:0 auto 18px;border-radius:22px;overflow:hidden;border:4px solid rgba(255,255,255,0.9);box-shadow:0 18px 36px -16px rgba(0,0,0,0.65)">
+      <div class="cfm-hero-main" style="position:relative">
+        <div class="cfm-hero-img" style="width:100%;aspect-ratio:1080 / 848;margin:0 auto 18px;border-radius:22px;overflow:hidden;border:4px solid rgba(255,255,255,0.9);box-shadow:0 18px 36px -16px rgba(0,0,0,0.65)">
           <image-slot id="colony-hero-sign" shape="rounded" radius="18" src="assets/colony-sign.jpeg" placeholder="Photo: Colony Food Market sign"></image-slot>
         </div>
-        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:999px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.3);font-family:Outfit,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px">
+        <div class="cfm-hero-status" style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:999px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.3);font-family:Outfit,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px">
           <span style="width:9px;height:9px;border-radius:999px;background:{{ statusDot }}"></span>{{ statusText }}
         </div>
-        <div style="position:relative;display:flex;align-items:center;justify-content:center;width:min(100%,300px);height:64px;margin:0 auto;padding:0 18px;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,0.85);box-shadow:0 10px 22px -12px rgba(0,0,0,0.6)">
+        <div class="cfm-hero-kicker" style="position:relative;display:flex;align-items:center;justify-content:center;width:min(100%,300px);height:64px;margin:0 auto;padding:0 18px;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,0.85);box-shadow:0 10px 22px -12px rgba(0,0,0,0.6)">
           <img src="assets/baby-beach.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 62%;display:block" />
           <span style="position:absolute;inset:0;background:rgba(11,59,57,0.55)"></span>
           <span style="position:relative;font-family:Outfit,sans-serif;font-weight:800;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#FFD400;text-shadow:0 1px 3px rgba(0,0,0,0.7)">{{ heroKicker }}</span>
         </div>
-        <h1 style="font-family:Outfit,sans-serif;font-weight:800;font-size:33px;line-height:1.1;margin:10px 0 12px;letter-spacing:-0.01em;text-wrap:pretty;color:#FFFFFF">{{ heroTitle }}</h1>
-        <p style="font-size:16px;line-height:1.55;margin:0 auto;max-width:34ch;color:#DDF6F3;text-wrap:pretty">{{ heroSub }}</p>
+        <h1 class="cfm-hero-title" style="font-family:Outfit,sans-serif;font-weight:800;font-size:33px;line-height:1.1;margin:10px 0 12px;letter-spacing:-0.01em;text-wrap:pretty;color:#FFFFFF">{{ heroTitle }}</h1>
+        <p class="cfm-hero-sub" style="font-size:16px;line-height:1.55;margin:0 auto;max-width:34ch;color:#DDF6F3;text-wrap:pretty">{{ heroSub }}</p>
       </div>
 
-      <div style="position:relative;display:flex;flex-direction:column;gap:10px;margin-top:22px">
+      <div class="cfm-hero-cta" style="position:relative;display:flex;flex-direction:column;gap:10px;margin-top:22px">
         <a href="{{ mapsUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 20px;border-radius:16px;background:#FFD400;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:18px;box-shadow:0 12px 26px -12px rgba(0,0,0,0.6)" style-hover="background:#FFE44D">{{ ctaMaps }}</a>
         <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 20px;border-radius:16px;background:rgba(255,255,255,0.12);color:#FFFFFF;border:2px solid rgba(255,255,255,0.55);font-family:Outfit,sans-serif;font-weight:700;font-size:17px" style-hover="background:#FFFFFF;color:#0B3B39">{{ ctaWa }}</a>
       </div>
     </div>
 
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;background:#FFF9DE;color:#0B3B39;padding:18px 22px 12px">
+    <div class="cfm-hours cfm-sec" style="display:flex;align-items:center;justify-content:space-between;gap:14px;background:#FFF9DE;color:#0B3B39;padding:18px 22px 12px">
       <div>
         <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A7100;font-weight:700">{{ openLabel }}</div>
         <div style="font-size:14px;color:#4A5F5D;margin-top:5px">{{ hoursWeekDays }}</div>
       </div>
       <div style="font-family:Outfit,sans-serif;font-weight:800;font-size:22px;white-space:nowrap">{{ hoursWeek }}</div>
     </div>
-    <div style="display:flex;align-items:flex-start;gap:10px;padding:0 22px 16px;background:#FFF9DE;border-bottom:1px solid rgba(255,212,0,0.6);font-size:14px;line-height:1.5;color:#3C4F4D;text-wrap:pretty">
+    <div class="cfm-bell cfm-sec" style="display:flex;align-items:flex-start;gap:10px;padding:0 22px 16px;background:#FFF9DE;border-bottom:1px solid rgba(255,212,0,0.6);font-size:14px;line-height:1.5;color:#3C4F4D;text-wrap:pretty">
       <span style="flex:0 0 auto;width:22px;height:22px;border-radius:999px;background:#FFD400;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center">i</span>
       <span>{{ bellTip }}</span>
     </div>
 
-    <div style="padding:26px 22px 0;display:grid;gap:10px">
+    <div class="cfm-cards cfm-sec" style="padding:26px 22px 0;display:grid;gap:10px">
       <div style="border-radius:18px;padding:18px 18px 17px;background:#E8F8F6;border:1px solid rgba(18,179,165,0.28)">
         <div style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px">{{ touristTitle }}</div>
         <div style="font-size:15px;line-height:1.5;color:#3C5C5A;margin-top:5px;text-wrap:pretty">{{ touristText }}</div>
@@ -86,12 +203,12 @@
       </div>
     </div>
 
-    <div style="padding:32px 22px">
-      <h2 style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 4px">{{ prodTitle }}</h2>
+    <div id="products" class="cfm-products cfm-sec" style="padding:32px 22px">
+      <h2 class="cfm-h2" style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 4px">{{ prodTitle }}</h2>
       <p style="font-size:15px;color:#3C5C5A;margin:0 0 18px">{{ prodSub }}</p>
 
       <div style="display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:800;color:#0E7C73"><span style="width:18px;height:4px;border-radius:4px;background:#12B3A5"></span>{{ drinksLabel }}</div>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
+      <div class="cfm-drinks" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
         <div style="position:relative;min-width:0;width:100%;height:210px">
           <image-slot id="colony-prod-candy-ice" shape="rounded" radius="18" src="assets/candy-icecream.jpg" placeholder="Photo: candy and ice cream"></image-slot>
           <span style="position:absolute;top:10px;left:10px;z-index:2;pointer-events:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:15px;box-shadow:0 6px 16px -8px rgba(0,0,0,0.5)">{{ pTreats }}</span>
@@ -100,7 +217,7 @@
           <image-slot id="colony-prod-fridges" shape="rounded" radius="18" src="assets/fridges.jpg" placeholder="Photo: our drink fridges"></image-slot>
           <span style="position:absolute;top:10px;left:10px;z-index:2;pointer-events:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:15px;box-shadow:0 6px 16px -8px rgba(0,0,0,0.5)">{{ pRefresh }}</span>
         </div>
-        <div style="grid-column:1 / -1;min-width:0;display:flex;flex-direction:column;gap:10px;margin-top:14px">
+        <div class="cfm-adult" style="grid-column:1 / -1;min-width:0;display:flex;flex-direction:column;gap:10px;margin-top:14px">
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px">
             <div style="display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:800;color:#0E7C73"><span style="width:18px;height:4px;border-radius:4px;background:#C62F25"></span>{{ pAdult }}</div>
             <span style="padding:5px 11px;border-radius:999px;background:#C62F25;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:800;font-size:13px;line-height:1.2">{{ pAdultAge }}</span>
@@ -112,7 +229,7 @@
       </div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:24px 0 10px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:800;color:#8A7100"><span style="width:18px;height:4px;border-radius:4px;background:#FFD400"></span>{{ snacksLabel }}</div>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
+      <div class="cfm-snacks" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
         <div style="position:relative;min-width:0;width:100%;height:170px">
           <image-slot id="colony-prod-chips" shape="rounded" radius="18" src="assets/shelf-chips.jpg" placeholder="Photo: chips"></image-slot>
           <span style="position:absolute;top:10px;left:10px;z-index:2;pointer-events:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:15px;box-shadow:0 6px 16px -8px rgba(0,0,0,0.5)">{{ pChips }}</span>
@@ -132,7 +249,7 @@
       </div>
 
       <div style="display:flex;align-items:center;gap:8px;margin:24px 0 10px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:800;color:#0E7C73"><span style="width:18px;height:4px;border-radius:4px;background:#7FE3D9"></span>{{ beachLabel }}</div>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
+      <div class="cfm-beachday" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
       <div style="position:relative;min-width:0;width:100%;height:260px">
         <image-slot id="colony-prod-ice" shape="rounded" radius="18" src="assets/ice-bags.jpeg" placeholder="Photo: bags of ice"></image-slot>
         <span style="position:absolute;top:10px;left:10px;right:10px;width:fit-content;z-index:2;pointer-events:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:15px;line-height:1.25;box-shadow:0 6px 16px -8px rgba(0,0,0,0.5)">{{ pIce }}</span>
@@ -154,10 +271,10 @@
       <div style="margin-top:14px;padding:15px 16px;border-radius:14px;background:#FFF9DE;border:1px solid rgba(255,212,0,0.55);font-size:15px;line-height:1.5">{{ deliveryNote }}</div>
     </div>
 
-    <div style="position:relative;overflow:hidden;margin-bottom:32px;padding:34px 22px 36px;background:#0B3B39;color:#FFFFFF">
+    <div id="promo" class="cfm-promo cfm-sec" style="position:relative;overflow:hidden;margin-bottom:32px;padding:34px 22px 36px;background:#0B3B39;color:#FFFFFF">
       <div style="position:absolute;top:-90px;right:-80px;width:260px;height:260px;border-radius:999px;background:radial-gradient(circle,rgba(255,212,0,0.42) 0%,rgba(255,212,0,0) 70%)"></div>
       <div style="position:absolute;left:-60px;bottom:-110px;width:280px;height:200px;border-radius:50%;background:rgba(127,227,217,0.14)"></div>
-      <div style="position:relative">
+      <div class="cfm-promo-intro" style="position:relative">
                 <h2 style="font-family:Outfit,sans-serif;font-weight:800;font-size:30px;line-height:1.1;letter-spacing:-0.01em;margin:8px 0 10px;color:#FFFFFF;text-wrap:pretty"><span style="display:block;margin-bottom:4px">Colony Food Market</span><span style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 27 18" width="36" height="24" role="img" aria-label="Flag of Aruba" style="flex:0 0 auto;display:block;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,0.35)"><rect width="27" height="18" fill="#418FDE"></rect><rect y="12" width="27" height="1" fill="#FFD100"></rect><rect y="14" width="27" height="1" fill="#FFD100"></rect><polygon points="4.6,0.7 5.519,3.681 8.5,4.6 5.519,5.519 4.6,8.5 3.681,5.519 0.7,4.6 3.681,3.681" fill="#FFFFFF"></polygon><polygon points="4.6,1.3 5.201,3.999 7.9,4.6 5.201,5.201 4.6,7.9 3.999,5.201 1.3,4.6 3.999,3.999" fill="#EF3340"></polygon></svg><span>Aruba Dance Challenge</span></span><span style="display:block;margin-top:6px;font-size:22px;color:#FFD400">{{ promoFor }}</span></h2>
         <p style="font-size:16px;line-height:1.55;color:#CDEFEA;margin:0;text-wrap:pretty">{{ promoSub }}</p>
         <div style="display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:10px 16px;border-radius:999px;background:#FFD400;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:16px;box-shadow:0 10px 24px -12px rgba(0,0,0,0.6)">
@@ -165,17 +282,17 @@
         </div>
       </div>
 
-      <div style="position:relative;width:min(100%,300px);aspect-ratio:9 / 16;margin:26px auto 0;border-radius:28px;overflow:hidden;border:6px solid #FFFFFF;background:#19C6C0;box-shadow:0 28px 50px -22px rgba(0,0,0,0.75)">
+      <div class="cfm-promo-phone" style="position:relative;width:min(100%,300px);aspect-ratio:9 / 16;margin:26px auto 0;border-radius:28px;overflow:hidden;border:6px solid #FFFFFF;background:#19C6C0;box-shadow:0 28px 50px -22px rgba(0,0,0,0.75)">
         <iframe src="assets/colony-promo.html#embed" title="Colony Foodmarket promo video" loading="lazy" style="display:block;width:100%;height:100%;border:0"></iframe>
       </div>
-      <div style="position:relative;text-align:center;font-size:14px;color:#9FD9D2;margin-top:10px">{{ promoHint }}</div>
+      <div class="cfm-promo-hint" style="position:relative;text-align:center;font-size:14px;color:#9FD9D2;margin-top:10px">{{ promoHint }}</div>
 
-      <div style="position:relative;margin-top:28px">
-        <div style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px;margin-bottom:12px">{{ promoHowTitle }}</div>
-        <div style="position:relative;width:min(100%,300px);aspect-ratio:478 / 850;margin:0 auto 16px;border-radius:28px;overflow:hidden;border:6px solid #FFFFFF;background:#000000;box-shadow:0 28px 50px -22px rgba(0,0,0,0.75)">
+      <div class="cfm-promo-how" style="position:relative;margin-top:28px">
+        <div class="cfm-promo-how-title" style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px;margin-bottom:12px">{{ promoHowTitle }}</div>
+        <div class="cfm-promo-video" style="position:relative;width:min(100%,300px);aspect-ratio:478 / 850;margin:0 auto 16px;border-radius:28px;overflow:hidden;border:6px solid #FFFFFF;background:#000000;box-shadow:0 28px 50px -22px rgba(0,0,0,0.75)">
           <video ref="{{ setVideo }}" src="assets/dance-challenge-video.mp4#t=0.1" title="Aruba Dance Challenge at Colony Food Market" controls="{{ true }}" sc-camel-plays-inline="{{ true }}" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#000000"><track kind="subtitles" src="data:text/vtt;base64,V0VCVlRUCgoxCjAwOjAwOjAwLjIwMCAtLT4gMDA6MDA6MDQuMTAwCk15IHdpZmUgdG9sZCBtZSB0byBtYWtlIHRoaXMgdmlkZW8Kc28gc2hl4oCZbGwgcmFpc2UgbXkgc2FsYXJ5LgoKMgowMDowMDowNC4xMDAgLS0+IDAwOjAwOjA4LjYwMApJZiB5b3Ugd2FudCwgY29tZSB0bwpDb2xvbnkgRm9vZCBNYXJrZXQhCgozCjAwOjAwOjA4LjYwMCAtLT4gMDA6MDA6MTUuMjAwCldlIHNlbGwgaWNlLgpJZiB5b3Ugd2FudCwgY29tZSBieSEKCjQKMDA6MDA6MTUuMjAwIC0tPiAwMDowMDoyMi4yMDAKV2Ugc2VsbCBiYWdzIG9mIGNoaXBzIHRvby4KSWYgeW91IHdhbnQsIGNvbWUgYnkhCg==" sc-camel-src-lang="en" label="English" default="{{ true }}" /><track kind="subtitles" src="data:text/vtt;base64,V0VCVlRUCgoxCjAwOjAwOjAwLjIwMCAtLT4gMDA6MDA6MDQuMTAwCk1pIGVzcG9zYSBtZSBkaWpvIHF1ZSBoaWNpZXJhIGVzdGUgdmlkZW8KcGFyYSBxdWUgbWUgc3ViYSBlbCBzdWVsZG8uCgoyCjAwOjAwOjA0LjEwMCAtLT4gMDA6MDA6MDguNjAwCsKhU2kgcXVpZXJlcywgdmVuIGEKQ29sb255IEZvb2QgTWFya2V0IQoKMwowMDowMDowOC42MDAgLS0+IDAwOjAwOjE1LjIwMApWZW5kZW1vcyBoaWVsby4KwqFTaSBxdWllcmVzLCB2ZW4hCgo0CjAwOjAwOjE1LjIwMCAtLT4gMDA6MDA6MjIuMjAwClRhbWJpw6luIHZlbmRlbW9zIGJvbHNhcyBkZSBwYXBpdGFzLgrCoVNpIHF1aWVyZXMsIHZlbiEK" sc-camel-src-lang="es" label="Español" /><track kind="subtitles" src="data:text/vtt;base64,V0VCVlRUCgoxCjAwOjAwOjAwLjIwMCAtLT4gMDA6MDA6MDQuMTAwCk1pam4gdnJvdXcgemVpIGRhdCBpayBkZXplIHZpZGVvIG1vZXN0IG1ha2VuCnpvZGF0IHplIG1pam4gc2FsYXJpcyB2ZXJob29ndC4KCjIKMDA6MDA6MDQuMTAwIC0tPiAwMDowMDowOC42MDAKQWxzIGplIHdpbHQsIGtvbSBuYWFyCkNvbG9ueSBGb29kIE1hcmtldCEKCjMKMDA6MDA6MDguNjAwIC0tPiAwMDowMDoxNS4yMDAKV2UgdmVya29wZW4gemFra2VuIGlqcy4KQWxzIGplIHdpbHQsIGtvbSBsYW5ncyEKCjQKMDA6MDA6MTUuMjAwIC0tPiAwMDowMDoyMi4yMDAKV2UgdmVya29wZW4gb29rIHpha2tlbiBjaGlwcy4KQWxzIGplIHdpbHQsIGtvbSBsYW5ncyEK" sc-camel-src-lang="nl" label="Nederlands" /></video>
         </div>
-        <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="cfm-promo-steps" style="display:flex;flex-direction:column;gap:10px">
           <sc-for list="{{ promoSteps }}" as="s" hint-placeholder-count="4">
             <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 15px;border-radius:14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14)">
               <span style="flex:0 0 auto;width:28px;height:28px;border-radius:999px;background:#FFD400;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center">{{ s.n }}</span>
@@ -183,33 +300,33 @@
             </div>
           </sc-for>
         </div>
-        <a href="{{ mapsUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:56px;margin-top:16px;padding:0 20px;border-radius:16px;background:#FFD400;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:17px;box-shadow:0 12px 26px -12px rgba(0,0,0,0.6)" style-hover="background:#FFE44D">{{ ctaMaps }}</a>
+        <a class="cfm-promo-cta" href="{{ mapsUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:56px;margin-top:16px;padding:0 20px;border-radius:16px;background:#FFD400;color:#0B3B39;font-family:Outfit,sans-serif;font-weight:800;font-size:17px;box-shadow:0 12px 26px -12px rgba(0,0,0,0.6)" style-hover="background:#FFE44D">{{ ctaMaps }}</a>
       </div>
     </div>
 
-    <div style="padding:0 22px 32px">
-      <h2 style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 14px">{{ photosTitle }}</h2>
-      <div style="display:grid;grid-template-columns:1fr;gap:10px">
+    <div class="cfm-photos cfm-sec" style="padding:0 22px 32px">
+      <h2 class="cfm-h2" style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 14px">{{ photosTitle }}</h2>
+      <div class="cfm-store" style="display:grid;grid-template-columns:minmax(0,1fr);gap:10px">
         <div style="width:100%;height:280px"><image-slot id="colony-store-1" shape="rounded" radius="16" src="assets/store-shelves.jpeg" placeholder="Photo: inside the store"></image-slot></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="cfm-store-small" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
           <div style="width:100%;height:130px"><image-slot id="colony-store-2" shape="rounded" radius="16" placeholder="Photo: cooler / beer"></image-slot></div>
           <div style="width:100%;height:130px"><image-slot id="colony-store-3" shape="rounded" radius="16" placeholder="Photo: snacks / ice cream"></image-slot></div>
         </div>
       </div>
 
-      <h2 style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:28px 0 4px">{{ beachTitle }}</h2>
+      <h2 class="cfm-h2" style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:28px 0 4px">{{ beachTitle }}</h2>
       <p style="font-size:15px;color:#3C5C5A;margin:0 0 14px;text-wrap:pretty">{{ beachSub }}</p>
-      <div style="display:grid;grid-template-columns:1fr;gap:12px">
-        <div>
+      <div class="cfm-beaches" style="display:grid;grid-template-columns:minmax(0,1fr);gap:12px">
+        <div style="min-width:0">
           <div style="width:100%;height:180px"><image-slot id="colony-beach-baby" shape="rounded" radius="16" placeholder="Photo: Baby Beach"></image-slot></div>
           <div style="font-family:Outfit,sans-serif;font-weight:700;font-size:16px;margin-top:7px">Baby Beach</div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div>
+        <div class="cfm-beaches-small" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+          <div style="min-width:0">
             <div style="width:100%;height:140px"><image-slot id="colony-beach-anker" shape="rounded" radius="16" placeholder="Photo: Anchor"></image-slot></div>
             <div style="font-family:Outfit,sans-serif;font-weight:700;font-size:16px;margin-top:7px">Anchor</div>
           </div>
-          <div>
+          <div style="min-width:0">
             <div style="width:100%;height:140px"><image-slot id="colony-beach-rodgers" shape="rounded" radius="16" placeholder="Photo: Rodgers Beach"></image-slot></div>
             <div style="font-family:Outfit,sans-serif;font-weight:700;font-size:16px;margin-top:7px">Rodgers Beach</div>
           </div>
@@ -217,10 +334,10 @@
       </div>
     </div>
 
-    <div style="padding:30px 22px;background:#F2FCFA;border-top:1px solid rgba(11,59,57,0.08);border-bottom:1px solid rgba(11,59,57,0.08)">
-      <h2 style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 4px">{{ whereTitle }}</h2>
+    <div id="where" class="cfm-where cfm-sec" style="padding:30px 22px;background:#F2FCFA;border-top:1px solid rgba(11,59,57,0.08);border-bottom:1px solid rgba(11,59,57,0.08)">
+      <h2 class="cfm-h2" style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 4px">{{ whereTitle }}</h2>
       <p style="font-size:15px;color:#3C5C5A;margin:0 0 16px;line-height:1.55;text-wrap:pretty">{{ whereSub }}</p>
-      <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="cfm-where-steps" style="display:flex;flex-direction:column;gap:10px">
         <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
           <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 15px;background:#FFFFFF;border-radius:14px;border:1px solid rgba(11,59,57,0.09)">
             <span style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#12B3A5;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center">{{ s.n }}</span>
@@ -228,9 +345,9 @@
           </div>
         </sc-for>
       </div>
-      <a href="{{ mapsUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:54px;margin-top:14px;border-radius:16px;background:#0B3B39;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:700;font-size:17px" style-hover="background:#12B3A5">{{ ctaRoute }}</a>
+      <a class="cfm-where-cta" href="{{ mapsUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:54px;margin-top:14px;border-radius:16px;background:#0B3B39;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:700;font-size:17px" style-hover="background:#12B3A5">{{ ctaRoute }}</a>
 
-      <div style="margin-top:24px">
+      <div class="cfm-where-video" style="margin-top:24px">
         <h3 style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px;margin:0 0 10px">{{ videoTitle }}</h3>
         <div style="position:relative;width:min(100%,318px);height:580px;margin:0 auto;border-radius:18px;overflow:hidden;background:#0B3B39;border:1px solid rgba(11,59,57,0.15)">
           <x-import component-from-global-scope="RouteFilm" from="./animations-v3.jsx ./route-video.jsx ./route-film.jsx" hint-size="100%,560px"></x-import>
@@ -238,9 +355,9 @@
       </div>
     </div>
 
-    <div style="padding:32px 22px">
-      <h2 style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 14px">{{ revTitle }}</h2>
-      <div style="display:flex;flex-direction:column;gap:10px">
+    <div id="reviews" class="cfm-reviews cfm-sec" style="padding:32px 22px">
+      <h2 class="cfm-h2" style="font-family:Outfit,sans-serif;font-weight:800;font-size:23px;margin:0 0 14px">{{ revTitle }}</h2>
+      <div class="cfm-review-list" style="display:flex;flex-direction:column;gap:10px">
         <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
           <div style="padding:18px;border-radius:16px;background:#F4FBFA;border:1px solid rgba(18,179,165,0.25)">
             <sc-if value="{{ r.five }}" hint-placeholder-val="{{ false }}"><div aria-label="5 stars" style="color:#E0A800;font-size:17px;letter-spacing:3px;line-height:1;margin-bottom:10px">★★★★★</div></sc-if>
@@ -257,9 +374,9 @@
       </div>
     </div>
 
-    <div style="padding:30px 22px 38px;background:#0B3B39;color:#FFFFFF">
-      <div style="font-family:Outfit,sans-serif;font-weight:800;font-size:22px;margin-bottom:16px">{{ contactTitle }}</div>
-      <div style="display:flex;flex-direction:column;gap:10px">
+    <div id="contact" class="cfm-contact cfm-sec" style="padding:30px 22px 38px;background:#0B3B39;color:#FFFFFF">
+      <div class="cfm-contact-title" style="font-family:Outfit,sans-serif;font-weight:800;font-size:22px;margin-bottom:16px">{{ contactTitle }}</div>
+      <div class="cfm-contact-btns" style="display:flex;flex-direction:column;gap:10px">
         <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:0 18px;border-radius:14px;background:#12B3A5;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:700;font-size:17px" style-hover="background:#7FE3D9;color:#0B3B39">
           <span>WhatsApp</span><span style="font-family:Karla,sans-serif;font-weight:600;font-size:15px">{{ phone }}</span>
         </a>
@@ -267,12 +384,12 @@
           <span>{{ callLabel }}</span><span style="font-family:Karla,sans-serif;font-weight:600;font-size:15px">{{ phone }}</span>
         </a>
       </div>
-      <div style="margin-top:20px;font-size:14px;line-height:1.6;color:#B8E9E3;white-space:pre-line">{{ address }}</div>
-      <div style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.16);font-size:12px;color:#7FA9A6">Colony Food Market · Aruba</div>
+      <div class="cfm-contact-addr" style="margin-top:20px;font-size:14px;line-height:1.6;color:#B8E9E3;white-space:pre-line">{{ address }}</div>
+      <div class="cfm-contact-foot" style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.16);font-size:12px;color:#7FA9A6">Colony Food Market · Aruba</div>
     </div>
 
-    <div style="height:84px"></div>
-    <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;padding:10px 12px 14px;background:linear-gradient(180deg,rgba(251,250,246,0) 0%,rgba(251,250,246,0.95) 38%)">
+    <div class="cfm-spacer" style="height:84px"></div>
+    <div class="cfm-bar" style="position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;padding:10px 12px 14px;background:linear-gradient(180deg,rgba(251,250,246,0) 0%,rgba(251,250,246,0.95) 38%)">
       <div style="width:100%;max-width:516px;display:grid;grid-template-columns:1.25fr 1fr;gap:10px">
         <a href="{{ mapsUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:15px;background:#12B3A5;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:800;font-size:16px;box-shadow:0 10px 24px -12px rgba(11,59,57,0.8)" style-hover="background:#0E9E92">{{ barMaps }}</a>
         <a href="{{ waUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:15px;background:#0B3B39;color:#FFFFFF;font-family:Outfit,sans-serif;font-weight:800;font-size:16px;box-shadow:0 10px 24px -12px rgba(11,59,57,0.8)" style-hover="background:#12B3A5">WhatsApp</a>
@@ -291,6 +408,11 @@ const REVIEWS = [
 
 const T = {
   pa: {
+    navProducts: "Productonan",
+    navPromo: "Ijs gratis",
+    navWhere: "Ruta",
+    navReviews: "Review",
+    navContact: "Contacto",
     heroKicker: "Banda di Baby Beach",
     heroTitle: "Bo mini market local na Seroe Colorado 1525",
     heroSub: "Cerbes friu, snacks i ijs — djis un stop cortico prome cu bo yega playa.",
@@ -345,6 +467,11 @@ const T = {
     address: "Colony Food Market\nSeroe Colorado 1525, San Nicolas, Aruba"
   },
   en: {
+    navProducts: "Products",
+    navPromo: "Free ice",
+    navWhere: "Directions",
+    navReviews: "Reviews",
+    navContact: "Contact",
     heroKicker: "Near Baby Beach",
     heroTitle: "Your local mini market at Seroe Colorado 1525",
     heroSub: "Cold beer, snacks and ice cream — a short stop before the beach.",
@@ -399,6 +526,11 @@ const T = {
     address: "Colony Food Market\nSeroe Colorado 1525, San Nicolas, Aruba"
   },
   es: {
+    navProducts: "Productos",
+    navPromo: "Hielo gratis",
+    navWhere: "Cómo llegar",
+    navReviews: "Opiniones",
+    navContact: "Contacto",
     heroKicker: "Cerca de Baby Beach",
     heroTitle: "Tu mini market local en Seroe Colorado 1525",
     heroSub: "Cerveza fría, snacks y helados — una parada rápida antes de la playa.",
@@ -453,6 +585,11 @@ const T = {
     address: "Colony Food Market\nSeroe Colorado 1525, San Nicolas, Aruba"
   },
   nl: {
+    navProducts: "Producten",
+    navPromo: "Gratis ijs",
+    navWhere: "Route",
+    navReviews: "Reviews",
+    navContact: "Contact",
     heroKicker: "Vlak bij Baby Beach",
     heroTitle: "Jouw lokale minimarkt op Seroe Colorado 1525",
     heroSub: "Koud bier, snacks en ijs — even stoppen op weg naar het strand.",
