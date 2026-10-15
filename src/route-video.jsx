@@ -179,7 +179,7 @@ function RouteVideo() {
           <text x="250" y="1970" textAnchor="middle" fontFamily="Karla, sans-serif" fontWeight="700" fontSize="38" fill="#0B3B39" opacity="0.45">Rodgers Beach</text>
           <g opacity={clamp(MOTION.enter({ from: 0, to: 1, start: CUES.Opening, end: CUES.Opening + 0.8 })(T), 0, 1)}>
             <circle cx="558" cy="140" r="22" fill="#FFFFFF" stroke={C.ink} strokeWidth="8" />
-            <text x="640" y="152" fontFamily="Outfit, sans-serif" fontWeight="800" fontSize="46" fill="#0B3B39" opacity="0.75">Blue Anchor</text>
+            <text x="558" y="214" textAnchor="middle" fontFamily="Outfit, sans-serif" fontWeight="800" fontSize="44" fill="#0B3B39" stroke="#F3F0E6" strokeWidth="12" strokeLinejoin="round" paintOrder="stroke" opacity="0.85">Blue Anchor</text>
           </g>
 
           <g transform={`translate(${car.x},${car.y}) rotate(${car.a + 90})`}>

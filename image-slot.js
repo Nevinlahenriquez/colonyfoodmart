@@ -1122,6 +1122,10 @@
         !credit && !this._userUrl && srcAttr && isUnsplashHost(srcAttr)
       );
       this.toggleAttribute('data-attribution-error', attrError);
+      // Colony: expose a text alternative for the photo (alt attribute, else
+      // the placeholder caption without its "Photo: " prefix).
+      this._img.alt = this.getAttribute('alt') ||
+        (this.getAttribute('placeholder') || '').replace(/^Photo:\s*/i, '');
       if (url && !attrError) {
         const prev = this._img.getAttribute('src');
         if (prev !== url) {
